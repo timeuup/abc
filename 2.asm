@@ -1,7 +1,4 @@
-;Name :-Shriyash Shingare
-;Roll No:-203707
-;Div- Panel 1
-;Aim-Calculate mean of 5 real numbers.
+
 
 %macro rw 4
 mov rax,%1
@@ -79,8 +76,4 @@ mov rdi,0
 syscall
 
 
-;OUTPUT:
-mtech@MTECHCSE:~/Desktop/shriyash$ nasm -f elf64 mean.asm 
-mtech@MTECHCSE:~/Desktop/shriyash$ ld -o mean mean.o 
-mtech@MTECHCSE:~/Desktop/shriyash$ ./mean 
-0000000000000028.1320
+
