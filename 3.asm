@@ -1,9 +1,4 @@
-;Name :-Shriyash Shingare
-;Roll No:-203707
-;Div- Panel 1
-;Aim-Display the contents of GDTR,LDTR,IDTR,Tr and MSW.
 
-;PROGRAM
 
 %macro rw 4
 mov rax,%1
@@ -143,23 +138,4 @@ mov ax,[esi]
 call display16
 ret
 
-;OUTPUT:
-mtech@MTECHCSE:~/Desktop/shriyash$ nasm -f elf64 assign3.asm 
-mtech@MTECHCSE:~/Desktop/shriyash$ ld -o assign3 assign3.o 
-mtech@MTECHCSE:~/Desktop/shriyash$ ./assign3 
 
-GDTR is 
-FE0000001000007F
-GDTR limit is 
-FFFF
-
-IDTR is
-FE00000000000FFF
-IDTR limit is
-FFFF
-
-TR is 
-0040
-
-MSW is
-0033
