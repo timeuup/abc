@@ -1,34 +1,34 @@
-section .data  			;data section 
+section .data  			
 arr1 db 09h,08h,07h,06h,05h
 
 
-section .bss			;bss section
+section .bss		
 arr2 resb 15
 
-section .text			;start of text section
+section .text			
 global _start
 _start:
 
 
 mov ch,05h
-outer:				;outer  loop
-mov esi,arr1			;setting up counter
+outer:				
+mov esi,arr1			
 mov cl,04h
 
-inner :				;inner loop
+inner :				
 mov al,byte[esi]
 cmp al,byte[esi+1]
 jbe down
 
-xchg al,byte[esi+1]		;swaping values
+xchg al,byte[esi+1]		
 mov byte[esi],al
 down:
 inc esi
 dec cl
-jnz inner			;end of
+jnz inner			
 
 dec ch
-jnz outer			;end of outer loop
+jnz outer			
 
 
 mov esi,arr1
@@ -46,7 +46,7 @@ rol al,04h
 mov bl,al
 and al,0fh
 cmp al,09h
-jbe down1			;unpacking arr and display it on to the terminal
+jbe down1			
 add al,07h
 down1:
 add al,30h
