@@ -3,7 +3,7 @@
 %macro rw 4
 mov rax,%1
 mov rdi,%2
-mov rsi,%3							;macro for input and output operation
+mov rsi,%3						
 mov rdx,%4
 syscall 
 %endmacro
@@ -21,7 +21,7 @@ msglen2 equ $-msg2
 msg3 db 10,"IDTR is",10
 msglen3 equ $-msg3
 
-msg4 db 10,"IDTR limit is",10					;messages for displaying register and limit
+msg4 db 10,"IDTR limit is",10					
 msglen4 equ $-msg4
 
 msg5 db 10,"MSW is",10
@@ -34,7 +34,7 @@ section .bss
 GDTR resb 8
 gdtrlimit resb 2
 tr resb 2
-temp resb 1							;declaring undeclared variables
+temp resb 1							
 IDTR resb 8
 idtrlimit resb 2
 msw resb 2
@@ -45,11 +45,11 @@ _start:
 
 call gdtrfunc
 call idtrfunc
-call trfunc							;different function calls 
+call trfunc							
 call mswfunc
 
 rw 1,1,newline,len
-rw 60,0,0,0							;end of program
+rw 60,0,0,0						
 
 
 display64:
@@ -60,7 +60,7 @@ mov rbx,rax
 and rax,0fh
 cmp rax,09h
 jbe down1			
-add rax,07h							;function defination of displaying 64 bit data 
+add rax,07h							
 down1:
 add rax,30h
 
@@ -80,7 +80,7 @@ mov bx,ax
 and ax,0fh
 cmp ax,09h
 jbe down2
-add ax,07h							;function defination of displaying 16 bit data
+add ax,07h							
 down2:
 add ax,30h
 mov byte[temp],al
@@ -99,7 +99,7 @@ sgdt [esi]
 mov rax,[esi]
 
 call display64
-rw 1,1,msg1,msglen1						;function defination of gdtr register
+rw 1,1,msg1,msglen1					
 mov esi,gdtrlimit
 mov ax,[esi]
 
@@ -112,7 +112,7 @@ rw 1,1,msg2,msglen2
 mov esi,tr
 str [esi]
 mov ax,[esi]
-call display16							;function defination of tr register
+call display16							
 ret
 
 idtrfunc:
@@ -123,7 +123,7 @@ sidt [esi]
 mov rax,[esi]
 
 call display64
-rw 1,1,msg4,msglen4						;function defination of idtr register
+rw 1,1,msg4,msglen4					
 mov esi,idtrlimit
 mov ax,[esi]
 
@@ -133,7 +133,7 @@ ret
 mswfunc:
 rw 1,1,msg5,msglen5
 mov esi,msw
-smsw [esi]							;function defination of msw register
+smsw [esi]							
 mov ax,[esi]
 call display16
 ret
