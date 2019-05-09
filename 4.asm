@@ -38,16 +38,16 @@ up1:mov al,[r8]
 next1: 
     rw 1,1,fname1,15
     rw 1,1,newl,1
-					;displaying file on monitor
+					
     
-    rw 2,fname1,000000q,0777q       	;open
+    rw 2,fname1,000000q,0777q       
     
     mov [fhandle],rax
     mov rbx,rax
-    rw 0,rbx,buff ,511                  ;read
+    rw 0,rbx,buff ,511                  
     
     mov [buff_len],rax
-    rw 1,1,buff,[buff_len]              ;display
+    rw 1,1,buff,[buff_len]              
     rw 3,[fhandle],0,0
 
 ;DISPLAY  DEST  FILE 
@@ -62,13 +62,13 @@ up2:mov al,[r8]
     jmp up2
 next2: 
     rw 1,1,fname2,15
-    rw 2,fname2,40h,0777q    	       ;create
-    rw 2,fname2,2,0777q                ;open des file
+    rw 2,fname2,40h,0777q    	       
+    rw 2,fname2,2,0777q                
     mov [fhandle],rax
     mov rbx,rax
     rw 1,rbx,buff ,[buff_len]
     rw 1,1,newl,1
-    rw 1,1,buff,[buff_len]             ;display
+    rw 1,1,buff,[buff_len]             
     rw 3,[fhandle],0,0
 
 
