@@ -74,25 +74,3 @@ int main() {
 }
 
 
-/* OUTPUT
-
-
- Enter the size 2
-
- Enter the array 5 10
-
-parent
-child - 2562
-parent - 2163 
-
-
-Descending  10  5 
-
-In the child
-child - 2563
-parent - 2562 
-Ascending  5  10 
-Printing wait status- 0 
-
-
-*/
